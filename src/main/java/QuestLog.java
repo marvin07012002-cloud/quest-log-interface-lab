@@ -8,23 +8,47 @@ public class QuestLog {
         events = new ArrayList<>();
     }
 
-    public void addEvent(ScoreEvent event){
+    public void addEvent(ScoreEvent event) {
+        events.add(event);
+    }
+
+    public int getTotalScore() {
+        int totalPoints = 0;
+        for (ScoreEvent event : events) {
+            int points = event.getPoints();
+            totalPoints += points;
+        }
+        return totalPoints;
+    }
+
+    public ScoreEvent getHighestScoringEvent() {
+        int highestPoints = 0;
+        ScoreEvent highestScoreEvent = null;
+        for (ScoreEvent event : events) {
+            int points = event.getPoints();
+            if (points > highestPoints) {
+                highestPoints = points;
+                highestScoreEvent = event;
+            }
+        }
+        return highestScoreEvent;
+    }
+
+    public ScoreEvent getLowestScoringEvent() {
+        int lowestScore = 0;
+        ScoreEvent lowestScoreEvent = null;
+        for (ScoreEvent event : events) {
+            int points = event.getPoints();
+            if (points < lowestScore) {
+                lowestScore = points;
+                lowestScoreEvent = event;
+            }
+        }
+        return lowestScoreEvent;
 
     }
 
-    public int getTotalScore(){
-        return 0;
-    }
-
-    public ScoreEvent getHighestScoringEvent(){
-
-    }
-
-    public ScoreEvent getLowestScoringEvent(){
-
-    }
-
-    public void printSummary(){
+    public void printSummary() {
 
     }
 }
