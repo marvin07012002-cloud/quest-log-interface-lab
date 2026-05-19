@@ -1,4 +1,4 @@
-public class MonsterDefeat {
+public class MonsterDefeat implements ScoreEvent {
     private String monsterName;
     private int difficultyLevel;
     private boolean boss;
@@ -9,16 +9,18 @@ public class MonsterDefeat {
         this.boss = boss;
     }
 
-
+    @Override
     public String getName() {
         return monsterName;
     }
 
+    @Override
     public int getPoints() {
         int points = difficultyLevel * 50;
         return points;
     }
 
+    @Override
     public String getSummary() {
         return "Defeated " + monsterName + " for " + getPoints() + " points";
     }
