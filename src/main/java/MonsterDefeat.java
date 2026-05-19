@@ -17,6 +17,9 @@ public class MonsterDefeat implements ScoreEvent {
     @Override
     public int getPoints() {
         int points = difficultyLevel * 50;
+        if(boss == true){
+            points += 100;
+        }
         return points;
     }
 

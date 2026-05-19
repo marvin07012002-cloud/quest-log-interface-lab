@@ -16,12 +16,14 @@ public class TreasureFound implements ScoreEvent {
     @Override
     public int getPoints() {
         int points = 0;
-        if (rarity == "common") {
-            points = 25;
-        } else if (rarity == "rare") {
-            points = 75;
-        } else if (rarity == "legendary") {
-            points = 150;
+        if (rarity.equalsIgnoreCase("common")) {
+            points += 25;
+        }
+        if (rarity.equalsIgnoreCase("rare")) {
+            points += 75;
+        }
+        if (rarity.equalsIgnoreCase("legendary")) {
+            points += 150;
         }
 
         return points;
